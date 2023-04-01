@@ -25,6 +25,13 @@ def talk(text):
     engine.runAndWait()
     return text
 
+def awake():
+    command = take_command()
+    print(command == None)
+    while command == None:
+        command = take_command()
+        print(command)
+    return command
 
 def run_deku():
 
