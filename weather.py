@@ -12,6 +12,4 @@ def getWeatherData(city):
 
     text = f'The weather is {weather} at a temperature of {current_temperature} in {city}'
     return text
-print(getWeatherData("Accra"))
-
 
