@@ -24,11 +24,8 @@ def talk(text):
     return text
 
 
-talk("Hi. I am Deku, and this is your hero academia. How may I assist you?")
-
-
-
 def run_deku():
+
     command = take_command()
     my_command = command
     print(command == None)
@@ -105,5 +102,5 @@ def run_deku():
     else:
         action = talk('Can you please come again?')    
 
-while True:
-    run_deku()
+#while True:
+#    run_deku()
