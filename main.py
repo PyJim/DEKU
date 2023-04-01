@@ -13,19 +13,21 @@ window = sg.Window(title="Deku Virtual Assistant", layout=layout, margins=(170,1
 
 
 while True:
-    awake = awake()
-    if "awake" in awake or 'deku' in awake:
+    Awake = awake()
+    talk("I am here")
+    if "awake" in Awake or 'deku' in awake:
         event, values = window.read()
-    if event == sg.WIN_CLOSED:
-        break
-    
-    
-    if event == "START":
-        talk("My name is Deku. I am your friend. Let me know what I can do for you.")
-        while True:
-            to_do = run_deku()
-            if to_do == 'quit':
-                sys.exit()
+
+        if event == sg.WIN_CLOSED:
+            break
+        
+        
+        if event == "START":
+            talk("My name is Deku. I am your friend. Let me know what I can do for you.")
+            while True:
+                to_do = run_deku()
+                if to_do == 'quit':
+                    sys.exit()
 
 
 
