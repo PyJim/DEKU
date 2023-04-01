@@ -21,7 +21,7 @@ To use DEKU, the following Python libraries and APIs are required:
 
 To install the required libraries and APIs, run the following command in your terminal:
 
-### bash
+#### bash
 pip install SpeechRecognition pyttsx3 pywhatkit datetime wikipedia pyjokes twilio pyautogui beautifulsoup4 quote openweather email PySimpleGUI
 
 ## Features
@@ -62,17 +62,18 @@ Start
 
 To use DEKU, simply run the main.py file in your terminal:
 
-bash
+#### bash
 python main.py
+
 This will allow you to say "Awake Deku" to open up the GUI. From here, you can interact with DEKU purely by voice.
 
 To terminate or close DEKU, say things like "Goodbye DEKU", or "See you later", etc.
 
-Conclusion
+## Conclusion
 DEKU is a useful virtual assistant that can perform a variety of tasks. It is easy to use and can be customized to fit your needs. If you have any questions or suggestions, feel free to contact the developers of DEKU:
 
-Jimmy Essel
-Michael Zatey
+Jimmy Essel - jimmy.essel@kibo.school
+Michael Zatey - michael.zatey@kibo.school
 
 NOTE: We will work on this and include various machine learning algorithms for better performance.
 
