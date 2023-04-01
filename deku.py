@@ -12,11 +12,14 @@ from quotes import getQuote
 from mail import sendEmail
 from screenshot import takeScreenshot
 
+global to_do 
+to_do = ""
 
 listener = sr.Recognizer()
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
+
 
 def talk(text):
     engine.say(text)
@@ -33,7 +36,6 @@ def run_deku():
         command = take_command()
         print(command)
 
-        
     if 'play' in command:
         song = command.replace('play', '')
         action = talk("playing" + song)
@@ -44,10 +46,10 @@ def run_deku():
         action = talk("The time is" + time)
 
     elif 'tell me about' in command:
-        search = command.replace('tell me about',"")
+        search = command.replace('tell me about', "")
         info = wikipedia.summary(search, 1)
         action = talk(info)
-    
+
     elif 'who is' in command or 'who is' in command:
         search = command
         info = wikipedia.summary(search, 1)
@@ -58,15 +60,15 @@ def run_deku():
 
     elif 'how are you' in command:
         action = talk('I am so much alive. How may I be of help?')
-    
+
     elif 'who are you' in command:
         action = talk(
             'I am Deku. The most intelligent being in the universe. This is my hero academia. How can I assist you?')
 
-    elif 'quote'in command:
+    elif 'quote' in command:
         quote = getQuote()
         action = talk(quote)
-    
+
     elif "call my phone" in command:
         action = talk('Calling your phone now')
         call()
@@ -99,8 +101,19 @@ def run_deku():
         sendEmail()
         action = talk("Email sent successfully")
 
-    else:
-        action = talk('Can you please come again?')    
+    elif "hello" in command or "hi" in command or "what's up" in command:
+        action = talk("Hello! How may I help you?")
 
-#while True:
-#    run_deku()
+    elif "good morning" in command or "good afternoon" in command or "good evening" in command or "good day" in command:
+        action = talk("Greetings! How may I help you?")
+
+    elif "goodnight" in command or "bye" in command or "see you later" in command or "stop" in command:
+        talk("Enjoy the rest of the day. Do well to call me when you need me")
+        global to_do 
+        to_do = 'quit'
+
+    else:
+        action = talk('Can you please come again?')
+    
+
+
