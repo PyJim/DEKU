@@ -12,6 +12,10 @@ from quotes import getQuote
 from mail import sendEmail
 from screenshot import takeScreenshot
 
+from flask import Flask, render_template, redirect
+
+app = Flask(__name__)
+
 
 listener = sr.Recognizer()
 engine = pyttsx3.init()
@@ -21,11 +25,15 @@ engine.setProperty('voice', voices[1].id)
 def talk(text):
     engine.say(text)
     engine.runAndWait()
+    return text
 
 
-talk("Hi. I am Deku, and this is your hero academia. How may I assist you?")
+@app.get("/")
+def deku():
+    talk("Hi. I am Deku, and this is your hero academia. How may I assist you?")
+    return render_template("deku.html")
 
-
+@app.get("/run_deku")
 def run_deku():
     command = take_command()
     my_command = command
@@ -94,6 +102,7 @@ def run_deku():
     else:
         action = talk('Can you please come again?')
 
+    return render_template("run_deku.html", user_message=my_command, deku_message=action)
 
 while True:
     run_deku()
