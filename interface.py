@@ -1,6 +1,7 @@
 import PySimpleGUI as sg
 import threading
 from deku import run_deku, talk
+import sys
 
 import PySimpleGUI as sg
 sg.set_options(font=('Arial Bold', 16))
@@ -20,7 +21,10 @@ while True:
     if event == "START":
         talk("My name is Deku. I am your friend. Let me know what I can do for you.")
         while True:
-            run_deku()
+            to_do = run_deku()
+            if to_do == 'quit':
+                sys.exit()
+
 
 
 window.close()
