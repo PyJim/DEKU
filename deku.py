@@ -12,8 +12,7 @@ from quotes import getQuote
 from mail import sendEmail
 from screenshot import takeScreenshot
 
-global to_do 
-to_do = ""
+
 
 listener = sr.Recognizer()
 engine = pyttsx3.init()
@@ -109,8 +108,7 @@ def run_deku():
 
     elif "goodnight" in command or "bye" in command or "see you later" in command or "stop" in command:
         talk("Enjoy the rest of the day. Do well to call me when you need me")
-        global to_do 
-        to_do = 'quit'
+        
 
     else:
         action = talk('Can you please come again?')
