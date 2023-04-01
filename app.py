@@ -31,7 +31,7 @@ def talk(text):
 @app.get("/")
 def deku():
     talk("Hi. I am Deku, and this is your hero academia. How may I assist you?")
-    return render_template("deku.html")
+    return render_template("home.html")
 
 @app.get("/run_deku")
 def run_deku():
@@ -102,8 +102,11 @@ def run_deku():
     else:
         action = talk('Can you please come again?')
 
-    return render_template("run_deku.html", user_message=my_command, deku_message=action)
+    return render_template("process_name.html", user_message=my_command, deku_message=action)
 
-while True:
-    run_deku()
+
+if __name__ == "__main__":
+    app.run(debug=True)
+#    while True:
+#        run_deku()
     
