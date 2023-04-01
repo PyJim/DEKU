@@ -56,7 +56,7 @@ def run_deku():
         info = wikipedia.summary(search, 1)
         action = talk(info)
 
-    elif 'who is' in command or 'who is' in command:
+    elif 'who is' in command or 'what is' in command:
         search = command
         info = wikipedia.summary(search, 1)
         action = talk(info)
