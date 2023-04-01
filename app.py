@@ -12,10 +12,6 @@ from quotes import getQuote
 from mail import sendEmail
 from screenshot import takeScreenshot
 
-from flask import Flask, render_template, redirect
-
-app = Flask(__name__)
-
 
 listener = sr.Recognizer()
 engine = pyttsx3.init()
@@ -28,16 +24,18 @@ def talk(text):
     return text
 
 
-@app.get("/")
-def deku():
-    talk("Hi. I am Deku, and this is your hero academia. How may I assist you?")
-    return render_template("home.html")
+talk("Hi. I am Deku, and this is your hero academia. How may I assist you?")
 
-@app.get("/run_deku")
+
+
 def run_deku():
     command = take_command()
     my_command = command
-    print(command)
+    print(command == None)
+    while command == None:
+        command = take_command()
+        print(command)
+
         
     if 'play' in command:
         song = command.replace('play', '')
@@ -53,6 +51,11 @@ def run_deku():
         info = wikipedia.summary(search, 1)
         action = talk(info)
     
+    elif 'who is' in command or 'who is' in command:
+        search = command
+        info = wikipedia.summary(search, 1)
+        action = talk(info)
+
     elif 'joke' in command:
         action = talk(pyjokes.get_joke())
 
@@ -100,13 +103,7 @@ def run_deku():
         action = talk("Email sent successfully")
 
     else:
-        action = talk('Can you please come again?')
+        action = talk('Can you please come again?')    
 
-    return render_template("process_name.html", user_message=my_command, deku_message=action)
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
-#    while True:
-#        run_deku()
-    
+while True:
+    run_deku()
